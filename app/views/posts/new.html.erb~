@@ -1,0 +1,5 @@
+<h1>New Post</h1>
+<%= render 'hi' %>
+<%= link_to "Back", controller: "welcome" %><br>
+<%= link_to "See all post", controller: "posts" %><br>
+<a href="http://www.google.com">Search</a>

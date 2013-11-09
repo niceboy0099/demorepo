@@ -1,0 +1,45 @@
+<p>
+  <strong>Title:</strong>
+  <%= @post.title %>
+</p>
+ 
+<p>
+  <strong>Text:</strong>
+  <%= @post.text %>
+</p>
+<h2>Comments</h2>
+<% @post.replies.each do |reply| %>
+  <p>
+    <strong>Commenter:</strong>
+    <%= reply.commenter %>
+  </p>
+  <p>
+    <strong>Comment:</strong>
+    <%= reply.body %>
+  </p>
+<p>
+ <%= link_to 'Destroy Comment',[reply.post, reply],
+               method: :delete,
+               data: { confirm: 'Are you sure?' } %>
+
+</p>
+<% end %>
+<h2>Add a comment:</h2>
+<%= form_for([@post, @post.replies.build]) do |f| %>
+  <p>
+    <%= f.label :commenter %><br />
+    <%= f.text_field :commenter %>
+  </p>
+  <p>
+    <%= f.label :body %><br />
+    <%= f.text_area :body %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p><p><%= select_tag(:city_id, options_for_select([['Lisbon', 1], ['Madrid', 2]])) %>
+</p>
+  <% end %>
+<%= link_to "See post", controller: "posts" %><br>
+
+</body>
+</html>

@@ -1,0 +1,7 @@
+class ProductController < ApplicationController
+  def creat
+    product = Product.create(name: "David")
+  end
+  def show
+    product = Product.find_by_name('David")
+end
